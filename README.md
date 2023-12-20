@@ -234,3 +234,87 @@ Once the daemon receives the command to create a new container, it makes a call 
     </tr>
   </tbody>
 </table>
+
+## Chapter 8 - Containerizing an App
+
+### Containerize a Single-Container App
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Other Options</th>
+      <th>Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>docker tag ddd-book:ch8.1 teriz/ddd-book:ch8.1</code></td>
+      <td>-</td>
+      <td>109</td>
+    </tr>
+    <tr>
+      <td><code>docker push teriz/ddd-book:ch8.1</code></td>
+      <td>-</td>
+      <td>110</td>
+    </tr>
+    <tr>
+      <td><code>docker history image_name</code></td>
+      <td>-</td>
+      <td>112</td>
+    </tr>
+  </tbody>
+</table>
+
+### Multi-Stage Builds
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Other Options</th>
+      <th>Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>docker build -t multi-stage/client --target prod-client -f Dockerfile-final .</code></td>
+      <td>-</td>
+      <td>118</td>
+    </tr>
+    <tr>
+      <td><code>docker build -t multi-stage/server --target prod-server -f Dockerfile-final .</code></td>
+      <td>-</td>
+      <td>118</td>
+    </tr>
+  </tbody>
+</table>
+
+## Multi-Platform Builds
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Other Options</th>
+      <th>Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>docker buildx version</code></td>
+      <td>-</td>
+      <td>119</td>
+    </tr>
+    <tr>
+      <td><code>docker buildx create --driver=docker-container --name=container</code></td>
+      <td>-</td>
+      <td>119</td>
+    </tr>
+    <tr>
+      <td><code>docker buildx build --builder=builder_name --platform=your_list -t image_name:tag --push .</code></td>
+      <td><code>--squash</code></td>
+      <td>119</td>
+    </tr>
+  </tbody>
+</table>
