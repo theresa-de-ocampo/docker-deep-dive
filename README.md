@@ -154,7 +154,7 @@ Once the daemon receives the command to create a new container, it makes a call 
       <td>69</td>
     </tr>
     <tr>
-      <td><code>docker pull -a</code></td>
+      <td><code>docker pull -a repository_name</code></td>
       <td>-</td>
       <td>72</td>
     </tr>
@@ -174,14 +174,19 @@ Once the daemon receives the command to create a new container, it makes a call 
       <td>77</td>
     </tr>
     <tr>
+      <td><code>docker image inspect local_image_name | grep "Architecture\|Os"</code></td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
       <td><code>docker buildx build --platform linux/arm/v7 -t myimage:armv7 .</code></td>
       <td>-</td>
-      <td>77</td>
+      <td>78</td>
     </tr>
     <tr>
       <td><code>docker manifest create</code></td>
       <td>-</td>
-      <td>77</td>
+      <td>78</td>
     </tr>
     <tr>
       <td><code>docker stop $(ps -a -q)</code></td>
@@ -197,6 +202,35 @@ Once the daemon receives the command to create a new container, it makes a call 
       <td><code>docker rmi $(docker images -q)</code></td>
       <td><code>-f</code></td>
       <td>79</td>
+    </tr>
+  </tbody>
+</table>
+
+## Chapter 7 - Containers
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Other Options</th>
+      <th>Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>docker run --name neversaydie -it --restart always alpine sh</code></td>
+      <td>-</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <td><code>docker run inspect neversaydie | grep "RestartCount"</code></td>
+      <td>-</td>
+      <td>94</td>
+    </tr>
+    <tr>
+      <td><code>docker inspect --format="{{json .Config.Entrypoint}}" container_name</code></td>
+      <td>-</td>
+      <td>98</td>
     </tr>
   </tbody>
 </table>
