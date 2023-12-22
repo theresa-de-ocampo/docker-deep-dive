@@ -2,6 +2,8 @@
 
 Learning path from Docker Deep Dive of Nigel Poulton (2023 Edition)
 
+TODO: Explore [Dockerfile Reference](https://docs.docker.com/engine/reference/builder/)
+
 ## Chapter 1 - Containers from 30,000 feet
 
 ### Kubernetes
@@ -290,7 +292,7 @@ Once the daemon receives the command to create a new container, it makes a call 
   </tbody>
 </table>
 
-## Multi-Platform Builds
+### Multi-Platform Builds
 
 <table>
   <thead>
@@ -315,6 +317,84 @@ Once the daemon receives the command to create a new container, it makes a call 
       <td><code>docker buildx build --builder=builder_name --platform=your_list -t image_name:tag --push .</code></td>
       <td><code>--squash</code></td>
       <td>119</td>
+    </tr>
+    <tr>
+      <td><code>docker buildx stop builder_name</code></td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+## Chapter 9 - Multi-Container Apps with Compose
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Other Options</th>
+      <th>Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>docker compose up</code></td>
+      <td><code>&</code>, <code>--detach</code></td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td><code>docker compose up -f prod-equus-bass.yml up &</code></td>
+      <td>-</td>
+      <td>133</td>
+    </tr>
+    <tr>
+      <td><code>docker network ls</code></td>
+      <td>-</td>
+      <td>134</td>
+    </tr>
+    <tr>
+      <td><code>docker volume ls</code></td>
+      <td>-</td>
+      <td>134</td>
+    </tr>
+    <tr>
+      <td><code>docker compose down</code></td>
+      <td><code>--volumes</code>, <code>--rmi (all|local)</code></td>
+      <td>135</td>
+    </tr>
+    <tr>
+      <td><code>docker compose ps</code></td>
+      <td><code>a</code></td>
+      <td>136</td
+    <tr>
+      <td><code>docker compose top</code></td>
+      <td>-</td>
+      <td>136</td>
+    </tr>
+    <tr>
+      <td><code>docker compose stop</code></td>
+      <td>-</td>
+      <td>137</td>
+    </tr>
+    <tr>
+      <td><code>docker compose rm</code></td>
+      <td>-</td>
+      <td>137</td>
+    </tr>
+    <tr>
+      <td><code>docker compose restart</code></td>
+      <td>-</td>
+      <td>137</td>
+    </tr>
+    <tr>
+      <td><code>docker compose ls</code></td>
+      <td>-</td>
+      <td>137</td>
+    </tr>
+    <tr>
+      <td><code>docker inspect multi-container_counter-vol</code></td>
+      <td>-</td>
+      <td>138</td>
     </tr>
   </tbody>
 </table>
