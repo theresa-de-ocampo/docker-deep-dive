@@ -365,7 +365,8 @@ Once the daemon receives the command to create a new container, it makes a call 
     <tr>
       <td><code>docker compose ps</code></td>
       <td><code>a</code></td>
-      <td>136</td
+      <td>136</td>
+    </tr>
     <tr>
       <td><code>docker compose top</code></td>
       <td>-</td>
@@ -416,10 +417,7 @@ Once the daemon receives the command to create a new container, it makes a call 
   <tbody>
     <tr>
       <td>
-        <code>
-          docker swarm init
-          <nobr>--advertise-addr</nobr> 10.0.0.1:2377
-          <nobr>--listen-addr</nobr> 10.0.0.1:2377
+        <code>docker swarm init <nobr>--advertise-addr</nobr> 10.0.0.1:2377 <nobr>--listen-addr</nobr> 10.0.0.1:2377
         </code>
       </td>
       <td><code>--autolock=true</code></td>
@@ -531,12 +529,7 @@ Once the daemon receives the command to create a new container, it makes a call 
     </tr>
     <tr>
       <td>
-        <code>
-          docker service create --name uber-service
-          <nobr>--network</nobr> uber-net
-          <nobr>-p</nobr> 8080:8080
-          <nobr>--replicas</nobr> 12
-          <nobr>nigelpoulton/ddd-book:web0.1</nobr>
+        <code>docker service create --name uber-service <nobr>--network</nobr> uber-net <nobr>-p</nobr> 8080: <nobr>--replicas</nobr> 12 <nobr>nigelpoulton/ddd-book:web0.1</nobr>
         </code>
       </td>
       <td>-</td>
