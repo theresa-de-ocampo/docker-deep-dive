@@ -1,0 +1,200 @@
+[
+  {
+    "ID": "bi8qwazsfg72anmknhb3d6e3b",
+    "Version": {
+      "Index": 148
+    },
+    "CreatedAt": "2023-12-23T08:12:25.865633403Z",
+    "UpdatedAt": "2023-12-23T08:23:36.243339327Z",
+    "Spec": {
+      "Name": "uber-service",
+      "Labels": {},
+      "TaskTemplate": {
+        "ContainerSpec": {
+          "Image": "nigelpoulton/ddd-book:web0.2@sha256:8fc6161f981b2d067593e8bc8960aa8c59b972015fbbba1291f4c2d16062678d",
+          "Init": false,
+          "StopGracePeriod": 10000000000,
+          "DNSConfig": {},
+          "Isolation": "default"
+        },
+        "Resources": {
+          "Limits": {},
+          "Reservations": {}
+        },
+        "RestartPolicy": {
+          "Condition": "any",
+          "Delay": 5000000000,
+          "MaxAttempts": 0
+        },
+        "Placement": {
+          "Platforms": [
+            {
+              "Architecture": "amd64",
+              "OS": "linux"
+            },
+            {
+              "Architecture": "arm64",
+              "OS": "linux"
+            },
+            {
+              "OS": "linux"
+            },
+            {
+              "Architecture": "unknown",
+              "OS": "unknown"
+            },
+            {
+              "Architecture": "unknown",
+              "OS": "unknown"
+            },
+            {
+              "Architecture": "unknown",
+              "OS": "unknown"
+            }
+          ]
+        },
+        "Networks": [
+          {
+            "Target": "kv8qrqdjfhwld5ddz1g201v18"
+          }
+        ],
+        "ForceUpdate": 0,
+        "Runtime": "container"
+      },
+      "Mode": {
+        "Replicated": {
+          "Replicas": 12
+        }
+      },
+      "UpdateConfig": {
+        "Parallelism": 2,
+        "Delay": 20000000000,
+        "FailureAction": "pause",
+        "Monitor": 5000000000,
+        "MaxFailureRatio": 0,
+        "Order": "stop-first"
+      },
+      "RollbackConfig": {
+        "Parallelism": 1,
+        "FailureAction": "pause",
+        "Monitor": 5000000000,
+        "MaxFailureRatio": 0,
+        "Order": "stop-first"
+      },
+      "EndpointSpec": {
+        "Mode": "vip",
+        "Ports": [
+          {
+            "Protocol": "tcp",
+            "TargetPort": 8080,
+            "PublishedPort": 8080,
+            "PublishMode": "ingress"
+          }
+        ]
+      }
+    },
+    "PreviousSpec": {
+      "Name": "uber-service",
+      "Labels": {},
+      "TaskTemplate": {
+        "ContainerSpec": {
+          "Image": "nigelpoulton/ddd-book:web0.1@sha256:7d63a71da32ee0839e562fde42b64633a40c7660dc58038c1512db448c8a2664",
+          "Init": false,
+          "DNSConfig": {},
+          "Isolation": "default"
+        },
+        "Resources": {
+          "Limits": {},
+          "Reservations": {}
+        },
+        "Placement": {
+          "Platforms": [
+            {
+              "Architecture": "amd64",
+              "OS": "linux"
+            },
+            {
+              "Architecture": "arm64",
+              "OS": "linux"
+            },
+            {
+              "OS": "linux"
+            },
+            {
+              "Architecture": "unknown",
+              "OS": "unknown"
+            },
+            {
+              "Architecture": "unknown",
+              "OS": "unknown"
+            },
+            {
+              "Architecture": "unknown",
+              "OS": "unknown"
+            }
+          ]
+        },
+        "Networks": [
+          {
+            "Target": "kv8qrqdjfhwld5ddz1g201v18"
+          }
+        ],
+        "ForceUpdate": 0,
+        "Runtime": "container"
+      },
+      "Mode": {
+        "Replicated": {
+          "Replicas": 12
+        }
+      },
+      "EndpointSpec": {
+        "Mode": "vip",
+        "Ports": [
+          {
+            "Protocol": "tcp",
+            "TargetPort": 8080,
+            "PublishedPort": 8080,
+            "PublishMode": "ingress"
+          }
+        ]
+      }
+    },
+    "Endpoint": {
+      "Spec": {
+        "Mode": "vip",
+        "Ports": [
+          {
+            "Protocol": "tcp",
+            "TargetPort": 8080,
+            "PublishedPort": 8080,
+            "PublishMode": "ingress"
+          }
+        ]
+      },
+      "Ports": [
+        {
+          "Protocol": "tcp",
+          "TargetPort": 8080,
+          "PublishedPort": 8080,
+          "PublishMode": "ingress"
+        }
+      ],
+      "VirtualIPs": [
+        {
+          "NetworkID": "l5acq3ex4rqa1t13i1vrb2yen",
+          "Addr": "10.0.0.7/24"
+        },
+        {
+          "NetworkID": "kv8qrqdjfhwld5ddz1g201v18",
+          "Addr": "10.0.1.2/24"
+        }
+      ]
+    },
+    "UpdateStatus": {
+      "State": "completed",
+      "StartedAt": "2023-12-23T08:19:43.360304637Z",
+      "CompletedAt": "2023-12-23T08:23:36.243305826Z",
+      "Message": "update completed"
+    }
+  }
+]

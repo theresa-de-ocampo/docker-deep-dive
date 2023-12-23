@@ -225,7 +225,7 @@ Once the daemon receives the command to create a new container, it makes a call 
       <td>94</td>
     </tr>
     <tr>
-      <td><code>docker run inspect neversaydie | grep "RestartCount"</code></td>
+      <td><code>docker inspect neversaydie | grep "RestartCount"</code></td>
       <td>-</td>
       <td>94</td>
     </tr>
@@ -395,6 +395,183 @@ Once the daemon receives the command to create a new container, it makes a call 
       <td><code>docker inspect multi-container_counter-vol</code></td>
       <td>-</td>
       <td>138</td>
+    </tr>
+  </tbody>
+</table>
+
+## Chapter 10 - Docker Swarm
+
+**Pre-requisites:** Set-up nodes with [Multipass](./multipass.md) or [PlayWithDocker](https://labs.play-with-docker.com/)
+
+### Build a Secure Swarm Cluster
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Other Options</th>
+      <th>Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>
+          docker swarm init
+          <nobr>--advertise-addr</nobr> 10.0.0.1:2377
+          <nobr>--listen-addr</nobr> 10.0.0.1:2377
+        </code>
+      </td>
+      <td><code>--autolock=true</code></td>
+      <td>148</td>
+    </tr>
+    <tr>
+      <td><code>docker node ls</code></td>
+      <td>-</td>
+      <td>148</td>
+    </tr>
+    <tr>
+      <td><code>docker swarm join-token worker</code></td>
+      <td>-</td>
+      <td>149</td>
+    </tr>
+    <tr>
+      <td><code>docker swarm join-token manager</code></td>
+      <td>-</td>
+      <td>149</td>
+    </tr>
+    <tr>
+      <td>
+        <code>
+          docker swarm join --token manager_or_worker_token leader_ip
+          <nobr>--advertise-addr</nobr> this_ip
+          <nobr>--listen-addr this_ip</nobr>
+        </code>
+      </td>
+      <td>-</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td><code>docker swarm update --autolock=true</code>
+      </td>
+      <td>-</td>
+      <td>153</td>
+    </tr>
+    <tr>
+      <td><code>docker swarm unlock</code>
+      </td>
+      <td>-</td>
+      <td>153</td>
+    </tr>
+    <tr>
+      <td><code>docker swarm unlock-key</code>
+      </td>
+      <td>-</td>
+      <td>153</td>
+    </tr>
+    <tr>
+      <td><code>docker node update --availability (active|pause|drain) manager1</code>
+      </td>
+      <td>-</td>
+      <td>154</td>
+    </tr>
+  </tbody>
+</table>
+
+### Deploying Swarm Services
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Other Options</th>
+      <th>Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>docker service create --name web-fe -p 8080:8080 --replicas 5 image</code></td>
+      <td><code>--mode global</code></td>
+      <td>155</td>
+    </tr>
+    <tr>
+      <td><code>docker service ls</code></td>
+      <td>-</td>
+      <td>156</td>
+    </tr>
+    <tr>
+      <td><code>docker service ps web-fe</code></td>
+      <td>-</td>
+      <td>156</td>
+    </tr>
+    <tr>
+      <td><code>docker service inspect --pretty web-fe</code></td>
+      <td>-</td>
+      <td>157</td>
+    </tr>
+    <tr>
+      <td><code>docker service scale web-fe=10</code></td>
+      <td>-</td>
+      <td>158</td>
+    </tr>
+    <tr>
+      <td><code>docker service rm web-fe</code></td>
+      <td>-</td>
+      <td>159</td>
+    </tr>
+    <tr>
+      <td><code>docker network create -d overlay uber-net</code></td>
+      <td>-</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td><code>docker network ls</code></td>
+      <td>-</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>
+        <code>
+          docker service create --name uber-service
+          <nobr>--network</nobr> uber-net
+          <nobr>-p</nobr> 8080:8080
+          <nobr>--replicas</nobr> 12
+          <nobr>nigelpoulton/ddd-book:web0.1</nobr>
+        </code>
+      </td>
+      <td>-</td>
+      <td>161</td>
+    </tr>
+    <tr>
+      <td>
+        <code>
+          docker service update
+          --image nigelpoulton/ddd-book:web0.2
+          --update-parallelism 2
+          --update-delay 20s
+          uber-service
+        </code>
+      </td>
+      <td>-</td>
+      <td>163</td>
+    </tr>
+  </tbody>
+</table>
+
+### Troubleshooting
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Other Options</th>
+      <th>Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>docker service logs</code></td>
+      <td><code>--details</code>, <code>--follow</code>, <code>tail</code></td>
     </tr>
   </tbody>
 </table>
