@@ -314,7 +314,9 @@ Once the daemon receives the command to create a new container, it makes a call 
       <td>119</td>
     </tr>
     <tr>
-      <td><code>docker buildx build --builder=builder_name --platform=your_list -t image_name:tag --push .</code></td>
+      <td>
+        <code>docker buildx build --builder=builder_name --platform=your_list -t image_name:tag --push .</code>
+      </td>
       <td><code>--squash</code></td>
       <td>119</td>
     </tr>
@@ -439,11 +441,7 @@ Once the daemon receives the command to create a new container, it makes a call 
     </tr>
     <tr>
       <td>
-        <code>
-          docker swarm join --token manager_or_worker_token leader_ip
-          <nobr>--advertise-addr</nobr> this_ip
-          <nobr>--listen-addr this_ip</nobr>
-        </code>
+        <code>docker swarm join --token manager_or_worker_token leader_ip <nobr>--advertise-addr</nobr> this_ip <nobr>--listen-addr this_ip</nobr></code>
       </td>
       <td>-</td>
       <td>150</td>
@@ -528,21 +526,14 @@ Once the daemon receives the command to create a new container, it makes a call 
     </tr>
     <tr>
       <td>
-        <code>docker service create --name uber-service <nobr>--network</nobr> uber-net <nobr>-p</nobr> 8080: <nobr>--replicas</nobr> 12 <nobr>nigelpoulton/ddd-book:web0.1</nobr>
-        </code>
+        <code>docker service create --name uber-service <nobr>--network</nobr> uber-net <nobr>-p</nobr> 8080: <nobr>--replicas</nobr> 12 <nobr>nigelpoulton/ddd-book:web0.1</nobr></code>
       </td>
       <td>-</td>
       <td>161</td>
     </tr>
     <tr>
       <td>
-        <code>
-          docker service update
-          --image nigelpoulton/ddd-book:web0.2
-          --update-parallelism 2
-          --update-delay 20s
-          uber-service
-        </code>
+        <code>docker service update <nobr>--image</nobr> nigelpoulton/ddd-book:web0.2 <nobr>--update-parallelism</nobr> 2 <nobr>--update-delay</nobr> 20s uber-service</code>
       </td>
       <td>-</td>
       <td>163</td>
