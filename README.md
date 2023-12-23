@@ -421,7 +421,7 @@ Once the daemon receives the command to create a new container, it makes a call 
       <td>
         <code>docker swarm init <nobr>--advertise-addr</nobr> 10.0.0.1:2377 <nobr>--listen-addr</nobr> 10.0.0.1:2377</code>
       </td>
-      <td><code><nbsp>--autolock=true</nbsp></code></td>
+      <td><code><nobr>--autolock=true</nobr></code></td>
       <td>148</td>
     </tr>
     <tr>
