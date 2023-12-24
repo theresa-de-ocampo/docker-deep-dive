@@ -541,6 +541,37 @@ Once the daemon receives the command to create a new container, it makes a call 
   </tbody>
 </table>
 
+#### More on `docker network ls`
+
+Lists all the network the daemon knows about. This includes network that span across multiple hosts in a cluster.
+
+```bash
+[worker1] (local) root@192.168.0.13 ~
+$ docker network ls
+NETWORK ID     NAME              DRIVER    SCOPE
+1624a8193671   bridge            bridge    local
+78bed499d0c5   docker_gwbridge   bridge    local
+81b60bc9270a   host              host      local
+f9b63ydlmtph   ingress           overlay   swarm
+02f1bcc66615   none              null      local
+```
+
+In Docker Swarm, the network named _ingress_ is a built-in overlay network used for internal communication amont the nodes in the swarm.
+
+Other networks like `bridge`, `docker_gwbridge`, `host`, and `none` are standard networks with different purposes.
+
+The ingress network is used by the swarm to route traffic route between services running on different nodes. It provides a way for containers on different nodes to communicate with each other seamlessly.
+
+If you want more detailed information about the ingress network or other swarm-related details, you can use:
+
+`docker network inspect ingress`
+
+When you create a new overlay network (`uber-net`) and update a service's (`uber-service`) network to use this newly created overlay network, it doesn't affect the default ingress network directly. The ingress network remains a fundamental part of the Docker Swarm for internal communication between services, regardless of additional overlay networks you create.
+
+The ingress network is used for routing traffice between services running on different nodes in the Docker Swarm. It is not replaced or superseded by other overlay networks; instead, overlay networks are additional and can be used for specific purposes.
+
+The tasks of the service can then communicate using both the default ingress network and the new overlay network. It doesn't replace or remove the ingress network; it simply extends the network capabilities of the service.
+
 ### Troubleshooting
 
 <table>
