@@ -50,7 +50,7 @@ Most new Kubernetes clusters use **containerd** which is the small specialized p
     </tr>
     <tr>
       <td><code>docker run -it ubuntu:latest /bin/bash</code></td>
-      <td>-</td>
+      <td><code>--dns</code>, <code>--dns-search</code></td>
       <td>38</td>
     </tr>
     <tr>
@@ -561,7 +561,7 @@ f9b63ydlmtph   ingress           overlay   swarm
 02f1bcc66615   none              null      local
 ```
 
-In Docker Swarm, the network named _ingress_ is a built-in overlay network used for internal communication amont the nodes in the swarm.
+In Docker Swarm, the network named _ingress_ is a built-in overlay network used for internal communication among the nodes in the swarm.
 
 Other networks like `bridge`, `docker_gwbridge`, `host`, and `none` are standard networks with different purposes.
 
@@ -592,6 +592,69 @@ The tasks of the service can then communicate using both the default ingress net
       <td><code>docker service logs</code></td>
       <td><code>--details</code>, <code>--follow</code>, <code>tail</code></td>
       <td>165</td>
+    </tr>
+  </tbody>
+</table>
+
+## Chapter 11 - Docker Networking
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Other Options</th>
+      <th>Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>docker inspect bridge</code></td>
+      <td><code>| grep "bridge.name"</code></td>
+      <td>179</td>
+    </tr>
+    <tr>
+      <td><code>docker network create -d bridge local-net</code></td>
+      <td>-</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td><code>docker run -d --name c1 --network local-net alpine sleep 1d</code></td>
+      <td>-</td>
+      <td>181</td>
+    </tr>
+    <tr>
+      <td><code>docker inspect your-network</code></td>
+      <td>-</td>
+      <td>181</td>
+    </tr>
+    <tr>
+      <td>
+        <code>docker network create -d macvlan --subnet=10.0.0.0/24 --ip-range=10.0.0.0/25 --gateway=10.0.0.1 -o parent=eth0.100 macvlan 100</code>
+      </td>
+      <td>-</td>
+      <td>187</td>
+    </tr>
+    <tr>
+      <td><code>docker logs container_name</code></td>
+      <td>-</td>
+      <td>190</td>
+    </tr>
+    <tr>
+      <td>
+        <code>docker service create -d --name svc1 --publish published=5001,target=80,mode=host ngnix</code>
+      </td>
+      <td>-</td>
+      <td>194</td>
+    </tr>
+    <tr>
+      <td><code>docker network prune</code></td>
+      <td>-</td>
+      <td>196</td>
+    </tr>
+    <tr>
+      <td><code>docker network rm network_name</code></td>
+      <td>-</td>
+      <td>196</td>
     </tr>
   </tbody>
 </table>
