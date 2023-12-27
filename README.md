@@ -24,7 +24,7 @@ Most new Kubernetes clusters use **containerd** which is the small specialized p
 2. Daemon (a.k.a. engine)
 3. Orchestrator
 
-- The low-level runtime is called **runc** and is the reference implementation of Open Containers Initiative (OCI) runtime-spect. Its job is to interface with the underlying OS and start and stop containers. Every container on a Docker node was created and started by an instance of **runc**.
+- The low-level runtime is called **runc** and is the reference implementation of Open Containers Initiative (OCI) runtime-spec. Its job is to interface with the underlying OS and start and stop containers. Every container on a Docker node was created and started by an instance of **runc**.
 
 - The high-level runtime is called **containerd**. This manages the entire container lifecycle including pulling images and managing runc instances.
 
@@ -84,7 +84,7 @@ Most new Kubernetes clusters use **containerd** which is the small specialized p
       <td>40</td>
     </tr>
     <tr>
-      <td><code>ls -</code></td>
+      <td><code>ls -l</code></td>
       <td>-</td>
       <td>42</td>
     </tr>
@@ -96,12 +96,12 @@ Most new Kubernetes clusters use **containerd** which is the small specialized p
     <tr>
       <td><code>docker build -t test:latest .</code></td>
       <td>-</td>
-      <td>42</td>
+      <td>43</td>
     </tr>
      <tr>
       <td><code>docker run -d --name web1 --publish 8080:8080 test:latest</code></td>
       <td>-</td>
-      <td>42</td>
+      <td>43</td>
     </tr>
   </tbody>
 </table>
@@ -221,7 +221,7 @@ Once the daemon receives the command to create a new container, it makes a call 
   <tbody>
     <tr>
       <td><code>docker run --name neversaydie -it --restart always alpine sh</code></td>
-      <td>-</td>
+      <td><code>--restart unless-stopped</code>, <code>--restart on-failure</code></td>
       <td>94</td>
     </tr>
     <tr>
@@ -340,6 +340,11 @@ Once the daemon receives the command to create a new container, it makes a call 
   </thead>
   <tbody>
     <tr>
+      <td><code>docker compose version</code></td>
+      <td>-</td>
+      <td>128</td>
+    </tr>
+    <tr>
       <td><code>docker compose up</code></td>
       <td><code>&</code>, <code>--detach</code></td>
       <td>132</td>
@@ -395,7 +400,7 @@ Once the daemon receives the command to create a new container, it makes a call 
       <td>137</td>
     </tr>
     <tr>
-      <td><code>docker inspect multi-container_counter-vol</code></td>
+      <td><code>docker volume inspect multi-container_counter-vol</code></td>
       <td>-</td>
       <td>138</td>
     </tr>
