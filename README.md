@@ -658,3 +658,47 @@ The tasks of the service can then communicate using both the default ingress net
     </tr>
   </tbody>
 </table>
+
+## Chapter 13 - Volumes and Persistent Data
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Other Options</th>
+      <th>Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>docker volume create my-volume</code></td>
+      <td><code>-d</code></td>
+      <td>215</td>
+    </tr>
+    <tr>
+      <td><code>docker volume ls</code></td>
+      <td>-</td>
+      <td>216</td>
+    </tr>
+    <tr>
+      <td><code>docker volume rm volume_name</code></td>
+      <td>-</td>
+      <td>216</td>
+    </tr>
+    <tr>
+      <td><code>docker run -it --name voltainer --mount source=bizvol,target=/vol alpine</code></td>
+      <td>-</td>
+      <td>217</td>
+    </tr>
+    <tr>
+      <td><code>docker plugin install</code></td>
+      <td>-</td>
+      <td>222</td>
+    </tr>
+    <tr>
+      <td><code>docker plugin ls</code></td>
+      <td>-</td>
+      <td>222</td>
+    </tr>
+  </tbody>
+</table>
