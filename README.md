@@ -2,8 +2,6 @@
 
 Learning path from Docker Deep Dive of Nigel Poulton (2023 Edition)
 
-TODO: Explore [Dockerfile Reference](https://docs.docker.com/engine/reference/builder/)
-
 ## Chapter 1 - Containers from 30,000 feet
 
 ### Kubernetes
@@ -191,12 +189,12 @@ Once the daemon receives the command to create a new container, it makes a call 
       <td>78</td>
     </tr>
     <tr>
-      <td><code>docker stop $(ps -a -q)</code></td>
+      <td><code>docker stop $(docker ps -a -q)</code></td>
       <td>-</td>
       <td>79</td>
     </tr>
     <tr>
-      <td><code>docker remove $(ps -a -q)</code></td>
+      <td><code>docker remove $(docker ps -a -q)</code></td>
       <td>-</td>
       <td>79</td>
     </tr>
@@ -702,3 +700,8 @@ The tasks of the service can then communicate using both the default ingress net
     </tr>
   </tbody>
 </table>
+
+## What's Next?
+
+- [Other Commands](https://www.simplilearn.com/tutorials/docker-tutorial/docker-commands)
+- [Debugging Containerized Apps in VS Code](https://code.visualstudio.com/docs/containers/debug-common)
