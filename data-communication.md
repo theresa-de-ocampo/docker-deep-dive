@@ -11,7 +11,7 @@ From [Power Cert](https://www.youtube.com/watch?v=hExRDVZHhig)
 - When a computer connects to a website using SSL, the computer's web browser will ask the website to identify itself. Then, the web server will send the computer a copy of its SSL certificate.
 - **SSL certificate** is a small digital certificate that is used to authenticate the identity of a website. Basically, it's used to let your computer know that the website you're visiting is trustworthy.
 - So then, the computer's browser will check to make sure that it trusts the certificate. And if it does, it will send a message to the web server.
-- The web server will then respond with an acknowledgement so an SSL session cna proceed. Encrypted data can now be exchanged between your computer and the web server.
+- The web server will then respond with an acknowledgement so an SSL session can proceed. Encrypted data can now be exchanged between your computer and the web server.
 
 ![SSL](./images/power-cert/ssl.png)
 
@@ -55,6 +55,18 @@ From [Power Cert](https://www.youtube.com/watch?v=1z0ULvg_pW8)
 - Routers are used to connect networks.
 
 ![Router](./images/power-cert/router.png)
+
+# NFS vs SMB
+
+- Both are file sharing protocols designed to allow client systems to access files over a computer network.
+
+## Network File System (NFS)
+
+- NFS' are typically used for Linux and Unix systems
+
+## Server Message Block (SMB)
+
+- SMBs are mostly used for Windows systems.
 
 # TODO
 
