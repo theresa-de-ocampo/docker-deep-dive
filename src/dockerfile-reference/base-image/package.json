@@ -1,0 +1,16 @@
+{
+  "name": "base-image",
+  "version": "1.0.0",
+  "description": "Demonstrates difference between Node base image vs Alpine base image installed with node.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Teriz De Ocampo",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
