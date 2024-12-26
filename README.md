@@ -218,6 +218,11 @@ Once the daemon receives the command to create a new container, it makes a call 
   </thead>
   <tbody>
     <tr>
+      <td><code>docker start container_name</code></td>
+      <td>-</td>
+      <td>91</td>
+    </tr>
+    <tr>
       <td><code>docker run --name neversaydie -it --restart always alpine sh</code></td>
       <td><code>--restart unless-stopped</code>, <code>--restart on-failure</code></td>
       <td>94</td>
