@@ -32,3 +32,7 @@ If you copy files into your Docker image using `ADD .` or `COPY .` command, you 
 ## Listing Dockerfile and `.dockerignore`
 
 You can even use the `.dockerignore` file to exclude the Dockerfile and `.dockerignore` files. These files are still sent to the daemon because it needs them to do its job. But the `ADD` and `COPY` instructions do not copy them to the image.
+
+### Should the Dockerfile itself be mentioned in `.dockerignore`?
+
+It mostly boils down to personal preference. Some suggest to include the Dockerfile in the the Docker image (i.e., not to mention it in `.dockerignore`) as it can help the consumers of the image to understand how it was built. However, this is already possible using `docker history`.

@@ -66,7 +66,7 @@ services.web-fe.build.args.[0]: unexpected type map[string]interface {}
 
 ### Setting ENV Values
 
-- You can set `ENV` values during the build, see [env.Dockerfile](./arg.Dockerfile)
+- You can set `ENV` values during the build, see [env.Dockerfile](./env.Dockerfile)
 - You can set `ENV` values when running containers in various ways.
 
 > NOTE. You can pass environment variables which are not defined via `ENV`. Build-time `ARG` variables are more strict about needing to be defined.
@@ -77,7 +77,7 @@ When operating via the command line, use the `-e` flag.
 docker run -e NODE_ENV=staging env-demo:v2
 ```
 
-Instead of listing a lot of variables, we can specify a file where they are written down.
+Instead of listing a lot of variables, we can specify a file where they are written down. Note that this will not work if you've included `.env` in `.dockerignore`.
 
 ```bash
 docker run --env-file .env env-demo:v2

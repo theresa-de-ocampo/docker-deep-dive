@@ -13,10 +13,10 @@ Sets the default command.
 
 There can only be one `CMD` instruction in a Dockerfile. If you list more than one `CMD`, only the last one takes effect.
 
-Go to [playground](./cmd-vs-entrypoint/Dockerfile).
+Go to [playground](./cmd.Dockerfile).
 
 ```bash
-$ docker build -t hands-on:v2 -f Dockerfile-CMD .
+$ docker build -t hands-on:v2 -f cmd.Dockerfile .
 
 $ docker run hands-on:v2
 My name is Teriz
@@ -36,7 +36,7 @@ Sets the default executable.
 By opting for this instruction method, you imply that the container is specifically built for certain use-cases where command should not be overridden.
 
 ```bash
-$ docker build -t hands-on:v3 -f Dockerfile-ENTRYPOINT .
+$ docker build -t hands-on:v3 -f entrypoint.Dockerfile .
 
 $ docker run hands-on:v3
 My name is Teriz
@@ -66,7 +66,7 @@ There are fundamental differences between `ENTRYPOINT` and `CMD` but there can b
 When using both `ENTRYPOINT` and `CMD`, keep them in exec form.
 
 ```bash
-$ docker build -t hands-on:v4 -f Dockerfile-BOTH .
+$ docker build -t hands-on:v4 -f both.Dockerfile .
 
 $ docker run hands-on:v4
 Hello! My name is Teriz
